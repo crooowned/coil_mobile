@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "297287226570",
+    "project_id": "coil-e821a",
+    "storage_bucket": "coil-e821a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297287226570:android:9e80657bc1c1b03f2e5033",
+        "android_client_info": {
+          "package_name": "com.coil_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297287226570-a3cbltt6pear8csr59dkvhakl26ockk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBLlysyV-AH91NSGXCV4BxuV6Fw0qZa_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297287226570-a3cbltt6pear8csr59dkvhakl26ockk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
