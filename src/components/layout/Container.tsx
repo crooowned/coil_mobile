@@ -34,13 +34,15 @@ export const Container : FC<ContainerProps> = (props: ContainerProps)=> {
     return (
     <View {... props} style={[gStyle.container, alignStyle, props.style]} >
         { props.backNavigator ? (
-            <Box>
+            <Box >
                 <TouchableHighlight onPress={()=>{props.backNavigator.goBack()}} style={{width:50, height:50, position:"relative"}}>
                     <Image style={{width:50, height:50}} source={require('../../assets/back.png')}/>
                 </TouchableHighlight>
             </Box>
         ) : null}
+        
         {props.children}
+        
         { props.art ? (
             <View style={{position:"absolute", bottom:0}}>
                 <Image style={{minHeight:height+120, resizeMode:"contain"}} source={

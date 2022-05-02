@@ -17,7 +17,7 @@ export function LoginPage({ navigation }: any) {
     const [password, setPassword] = useState("");
     Icon.loadFont();
         return(
-            <Container alignment="space-evenly" backNavigator={navigation}>
+            <Container backNavigator={navigation}>
                 <Box>
                     <Text style={{fontSize:65, color:"white", fontWeight: "500", borderBottomWidth: 10, textShadowColor: gStyle.bgSecondary.backgroundColor,textDecorationLine: "underline",textDecorationStyle: "solid",textDecorationColor: gStyle.bgSecondary.backgroundColor}}>Wilkommen</Text>
                     <Text style={{fontSize:65, color:"white", fontWeight: "500"}}>zurück.</Text>

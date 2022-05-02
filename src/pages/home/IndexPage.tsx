@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { Container } from "../../components/layout/Container";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -8,20 +8,33 @@ import { HomePage } from "./HomePage";
 import { UserContext } from "../../../App";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import AccountDataService from "../../services/AccountDataService";
+import { VehicleService } from "../../services/VehicleService";
 
 const Tab = createBottomTabNavigator();
 
 export function IndexPage({navigation}:any) {
     var user = useContext<FirebaseAuthTypes.User|null>(UserContext);
-
+    
     // Navigate to SetupAccountPage if user has not setup account
-    if(user){
-        AccountDataService.hasSetupAccount(user.uid).then(hasSetupAccount => {
-            if(!hasSetupAccount){
-                navigation.navigate("SetupAccount");
-            }
-        });
-    }   
+    useEffect(()=>{
+        if(user){
+            AccountDataService.hasSetupAccount(user.uid).then(hasSetupAccount => { // Vorraussetzung eine RefreshId ist hinterlegt
+                if(!hasSetupAccount){
+                    navigation.navigate("SetupAccount");
+                }
+            });
+            
+
+            VehicleService.getSelectedVehicleId().then((vehicleId)=>{ // Fahrzeug ID setzen wenn keine vergeben
+                if(!vehicleId){
+                    VehicleService.getVehicles((vehicles)=>{
+                        VehicleService.setSelectVehicleId(vehicles[0].id.toString());
+                    });
+                }
+            });
+        } 
+    }, [user]);
+    
 
     return (
         <Tab.Navigator tabBar={props => <CoilTabBar {...props} />} screenOptions={{headerShown: false}}>

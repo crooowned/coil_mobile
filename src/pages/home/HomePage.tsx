@@ -1,38 +1,52 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { Box } from "../../components/layout/Box";
 import { Container } from "../../components/layout/Container";
 import Icon from "react-native-vector-icons/Ionicons";
 import Swiper from "react-native-swiper";
 import DriveInfoCard from "../../components/DriveInfoCard";
-import { CarService } from "../../services/CarService";
+import { VehicleService } from "../../services/VehicleService";
 import { IDrive } from "../../objs/interfaces/IDrive";
 import ToolBoxItem from "../../components/ToolBoxItem";
 import IToolBox from "../../objs/interfaces/IToolBox";
+import { UserContext } from "../../../App";
+import { ICar } from "../../objs/interfaces/ICar";
+import VehicleSwitcher from "../../components/internal/VehicleSwitcher";
+import { ProgressCircle } from "react-native-svg-charts";
+
 
 export const NavigationContext = createContext(null);
+
 export function HomePage({navigation}:any){
+    const user = useContext(UserContext);
     const [drives, setDrives] = useState<IDrive[]>([]);
     const [tools, setTools] = useState<IToolBox[]>([]);
+    const [vehicle, setVehicle] = useState<ICar>();
     
-
     useEffect(()=>{
-        if(drives.length < 1)
-            CarService.getDrives(0).then((driveArr: IDrive[])=>setDrives(driveArr));
-    });
-    
+        VehicleService.getSelectedVehicleId().then(vid=>{
+            if(vid)
+                VehicleService.getVehicleById(vid, (veh)=>{
+                    if(veh)
+                        setVehicle(veh);
+                })
+        });
+    }, [setVehicle]);
+
     Icon.loadFont();
     return (
         <NavigationContext.Provider value={navigation}>
             <Container>
                 <Box>
                     <Box col={12} noPadding>
-                        <Text style={{color:"white", fontSize: 25, width:"100%"}}>Tesla Model 3 LR 2021 <Icon style={{fontSize: 25, textAlign: "right", paddingVertical: 25}} name="chevron-down-outline"/></Text>  
+                        <VehicleSwitcher/>
                     </Box>
                     <Box col={4} noPadding>
-                        <Text style={{color:"gray", fontSize: 15, width:"100%"}}>Tessi</Text>
+                        <Text style={{color:"gray", fontSize: 15, width:"100%"}}>{vehicle?.vehicle_config.car_type + " " + vehicle?.vehicle_config.efficiency_package}</Text>
                     </Box>
                     <Box>
+                        
+                        <ProgressCircle style={{width:100, height: 100}} backgroundColor={"white"} progressColor={"green"} progress={vehicle?.charge_state.usable_battery_level? vehicle?.charge_state.usable_battery_level/100:0}/>
                         {/* Statistik kp */}
                     </Box>
                 </Box>
@@ -78,3 +92,4 @@ export function HomePage({navigation}:any){
         </NavigationContext.Provider>
     );
 }
+

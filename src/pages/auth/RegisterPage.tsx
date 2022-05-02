@@ -12,7 +12,7 @@ export function RegisterPage({ navigation }: any) {
         const [user, setUser] = useState("");
         const [password, setPassword] = useState("");
         return(
-            <Container alignment="space-evenly" backNavigator={navigation}>
+            <Container backNavigator={navigation}>
                 <Box>
                     <Text style={{fontSize:65, color:"white", fontWeight: "500", borderBottomWidth: 10, textShadowColor: gStyle.bgSecondary.backgroundColor,textDecorationLine: "underline",textDecorationStyle: "solid",textDecorationColor: gStyle.bgSecondary.backgroundColor}}>Account</Text>
                     <Text style={{fontSize:65, color:"white", fontWeight: "500"}}>erstellen.</Text>
@@ -20,7 +20,7 @@ export function RegisterPage({ navigation }: any) {
                 <Box>
                     <CInput autoCorrect={false} autoCapitalize='none' onChangeText={email => setUser(email)} placeholder="Email"></CInput>
                     <CInput secureTextEntry={true} onChangeText={pass => setPassword(pass)} placeholder=""></CInput>
-                    <CButton onClick={()=>{auth().createUserWithEmailAndPassword(user, password).catch((e)=>Alert.alert("Regestrierung", "Registrierung fehlgeschlagen: " + e));}} style={{marginVertical: 25}} background={gStyle.bgPrimary.backgroundColor} textColor={gStyle.bgPrimary.color} title="Einloggen"></CButton>
+                    <CButton onClick={()=>{auth().createUserWithEmailAndPassword(user, password).catch((e)=>Alert.alert("Registrierung", "Registrierung fehlgeschlagen: " + e));}} style={{marginVertical: 25}} background={gStyle.bgPrimary.backgroundColor} textColor={gStyle.bgPrimary.color} title="Registrieren"></CButton>
                 </Box>
                 <Wave side="bottom"/>
             </Container>

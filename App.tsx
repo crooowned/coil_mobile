@@ -9,7 +9,7 @@ import { IndexPage } from './src/pages/home/IndexPage';
 import { LoginOrRegisterPage } from './src/pages/auth/LoginOrRegisterPage';
 import { RegisterPage } from './src/pages/auth/RegisterPage';
 import DriveDetailPage from './src/pages/home/drives/DriveDetail';
-import SetupAccountPage from './src/pages/home/SetupAccountPage';
+import SetupAccountPage from './src/pages/setup/SetupAccountPage';
 
 const Stack = createNativeStackNavigator();
 export const UserContext = React.createContext<FirebaseAuthTypes.User|null>(null);

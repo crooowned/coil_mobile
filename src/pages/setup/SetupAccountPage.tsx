@@ -38,7 +38,7 @@ export default function SetupAccountPage({navigation}:any){
         </Box>
         <Box>
             <CInput style={style.cinput} onChangeText={(text)=>setToken(text)} placeholder="Refreshtoken" underlineColor={gStyle.bgSecondary.backgroundColor}></CInput>
-            <CButton onClick={()=>{if(user){AccountDataService.setupAccount(user.uid, token); navigation.navigate('Index');}}} title="Bestätigen" background={gStyle.bgSecondary.backgroundColor}></CButton>
+            <CButton onClick={()=>{if(user){AccountDataService.setupAccount(user.uid, token).then(()=>navigation.navigate('Index'));}}} title="Weiter" background={gStyle.bgSecondary.backgroundColor}></CButton>
         </Box>
     </Container>
     );

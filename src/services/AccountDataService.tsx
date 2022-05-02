@@ -10,7 +10,7 @@ export default class AccountDataService{
     }
 
     static async setupAccount(uid: string, refreshToken: string){
-        await firestore().collection('accounts').doc(uid).set({
+        return await firestore().collection('accounts').doc(uid).set({
             refreshToken: refreshToken,
             createdAt: new Date(),
             isWorking: null
