@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "297287226570",
-    "project_id": "coil-e821a",
-    "storage_bucket": "coil-e821a.appspot.com"
+    "project_number": "519547800924",
+    "project_id": "coil-247c0",
+    "storage_bucket": "coil-247c0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:297287226570:android:9e80657bc1c1b03f2e5033",
+        "mobilesdk_app_id": "1:519547800924:android:1dade0e5b6367ca9a48599",
         "android_client_info": {
-          "package_name": "com.coil_mobile"
+          "package_name": "com.croowned.coilmobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "297287226570-a3cbltt6pear8csr59dkvhakl26ockk9.apps.googleusercontent.com",
+          "client_id": "519547800924-mfpfcstbgs0b1pssgsefv7i2ufpqbq59.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDBLlysyV-AH91NSGXCV4BxuV6Fw0qZa_A"
+          "current_key": "AIzaSyCNjriwYAz_7k4jMnquqahbt-SOO6lt7eE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "297287226570-a3cbltt6pear8csr59dkvhakl26ockk9.apps.googleusercontent.com",
+              "client_id": "519547800924-mfpfcstbgs0b1pssgsefv7i2ufpqbq59.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "519547800924-l6r8j2sp07oc14bgaj490htishs43ptq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "de.crooowned.coil-mobile"
+              }
             }
           ]
         }
