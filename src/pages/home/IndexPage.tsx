@@ -9,6 +9,8 @@ import { UserContext } from "../../../App";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import AccountDataService from "../../services/AccountDataService";
 import { VehicleService } from "../../services/VehicleService";
+import DriveList from "./drives/DriveList";
+import ChargeList from "./charges/ChargeList";
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +41,8 @@ export function IndexPage({navigation}:any) {
     return (
         <Tab.Navigator tabBar={props => <CoilTabBar {...props} />} screenOptions={{headerShown: false}}>
             <Tab.Screen name="Home" component={HomePage} />
+            <Tab.Screen name="Drives" component={DriveList} />
+            <Tab.Screen name="Charges" component={ChargeList} />
             <Tab.Screen name="Settings" component={Settings} options={{ tabBarBadge: 3  }}/>{/*Todo*/}
         </Tab.Navigator>
     );

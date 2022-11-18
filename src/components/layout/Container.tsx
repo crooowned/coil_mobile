@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Image, StyleSheet, TouchableHighlight, useWindowDimensions, View, ViewProps } from "react-native";
+import { Image, ScrollView, StyleSheet, TouchableHighlight, useWindowDimensions, View, ViewProps } from "react-native";
 import { gStyle } from "../../globals/style";
 import { Box } from "./Box";
 
@@ -40,9 +40,9 @@ export const Container : FC<ContainerProps> = (props: ContainerProps)=> {
                 </TouchableHighlight>
             </Box>
         ) : null}
-        
+        {/*<ScrollView>*/}
         {props.children}
-        
+        {/*</ScrollView>*/}
         { props.art ? (
             <View style={{position:"absolute", bottom:0}}>
                 <Image style={{minHeight:height+120, resizeMode:"contain"}} source={

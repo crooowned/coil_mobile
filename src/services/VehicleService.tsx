@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export class VehicleService{
     static getVehicles(callback: (cars: any)=>void){
         firebase.app().database(environment.firebase.realtime_database.url)
-            .ref('users/' + auth().currentUser?.uid + "/vehicles") // no trailing "/"! (even though it does get trimmed off internally)
+            .ref(auth().currentUser?.uid + "/vehicle") // no trailing "/"! (even though it does get trimmed off internally)
             .on(
                 'value',
                 snapshot => {
@@ -23,22 +23,20 @@ export class VehicleService{
                     console.error('Failed to retrieve users/vehicles ' + error);
                 }
             );
-        console.debug("VehicleService.getVehicles()");
     }
 
     static getVehicleById(vid: string, callback : (car: ICar)=>void){
         firebase.app().database(environment.firebase.realtime_database.url)
-        .ref('users/' + auth().currentUser?.uid + "/vehicles/" + vid).on(
+        .ref(auth().currentUser?.uid + "/vehicle/" + vid).on(
             'value',
             snapshot => {
                 if(snapshot.exists())
                     callback(snapshot.val() as ICar);
             },
             error => {
-                console.error('Failed to retrieve users/vehicles/id: ' + error);
+                console.error('Failed to retrieve :userid/vehicle/:id ' + error);
             }
         )
-        console.debug("VehicleService.getVehicleById()");
     }
 
     static async getSelectedVehicleId() : Promise<string|null>{   

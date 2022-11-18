@@ -23,6 +23,12 @@ export default function CoilTabBar({ state, descriptors, navigation } :any) {
             case "Settings":
               iconName = "settings-outline";
               break;
+            case "Drives":
+              iconName = "car-outline";
+              break;
+            case "Charges":
+              iconName = "flash-outline";
+              break;
         }
 
         const isFocused = state.index === index;

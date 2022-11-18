@@ -1,13 +1,30 @@
-import { IPosition } from "./IPosition";
+import IAdress from "./IAdress";
+import { IFrame } from "./IFrame";
+import firestore, { firebase, FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 
 export interface IDrive{
-    id: number;
-    start_address: IPosition;
-    start_time: string;
-    end_time: string;
-    end_address: IPosition;
-    distance: number;
-    duration: number;
-    
-    positions: IPosition[];
+    id: string
+    complete: boolean
+    timestamp: Date
+    startDate?: FirebaseFirestoreTypes.Timestamp
+    endDate?: FirebaseFirestoreTypes.Timestamp
+    vehicle: number
+    vin: string
+    summary: {
+        drivenKm: number
+        usedBatteryLevel: number
+        usedEstRange: number
+        usedRange: number
+    }
+    startLocation: IAdress
+    endLocation?: IAdress | undefined
+    frames?: IFrame[] | undefined
+
+    getIcon(): string 
+    getDurationString():string
+    getStartTime(): string;
+    getEndTime() : string;
+    getAverageLiters() : string;
+    getAverageCo2() : string;
+
 }
