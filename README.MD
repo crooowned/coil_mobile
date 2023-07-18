@@ -1,17 +1,9 @@
-## IDEAS
-> Create a scoreboard where the user is compared to other users
+# Coil - Ein Tesla Data Logger
+> WIP
 
-> Connection to senec or other solar panel systems and combine data and make notifications about the current energy state 
+Coil ermöglicht es, Daten von Tesla-Fahrzeugen zu erfassen und zu analysieren. Mit Coil können Sie Ihre Fahrleistung, Ihre Energienutzung und andere wichtige Daten verfolgen. Sie können Ihre Daten auch mit anderen Tesla-Besitzern teilen oder sie mit anderen Anwendungen verwenden, wie z. B. Flottenmanagement- oder Navigationssystemen.
 
-> most visited map with charger statistics and driving heatmap
-> - chargers
-> - custom geolocations
-> - suggestions of most visited locations
-
-> notifications if anything is running wrong
-> - usb drive full
-> - tmps sensors under 3 bar
-> - battery degrading rate
-> - anything else that is running not normal
-
-> Show rating of driving behaviour
+# Screenshots
+![Welcome Screen](preview/welcome_screen.png)
+![Dashboard](preview/dashboard.png)
+![Login](preview/login_screen.png)
